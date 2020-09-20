@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 
 class ToyCard extends Component {
+  onClickHandler = () => {
+    const { id } = this.props.toyData;
+    this.props.deleteHandler(id);
+  };
+
+  likeButtonOnClick = () => {
+    const { id } = this.props.toyData;
+    this.props.likeButtonHandler(id);
+  };
 
   render() {
+    const { id, image, likes, name } = this.props.toyData;
     return (
-      <div className="card">
-        <h2>{'' /* Toy's Name */}</h2>
-        <img src={'' /* Toy's Image */} alt={/* Toy's Name */} className="toy-avatar" />
-        <p>{'' /* Toy's Likes */} Likes </p>
-        <button className="like-btn">Like {'<3'}</button>
-        <button className="del-btn">Donate to GoodWill</button>
+      <div className='card' id={id}>
+        <h2>{name}</h2>
+        <img src={image} alt={name} className='toy-avatar' />
+        <p>{likes} Likes </p>
+        <button className='like-btn' onClick={this.likeButtonOnClick}>
+          Like {'<3'}
+        </button>
+        <button className='del-btn' onClick={this.onClickHandler}>
+          Donate to GoodWill
+        </button>
       </div>
     );
   }
-
 }
 
 export default ToyCard;
