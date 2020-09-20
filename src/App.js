@@ -5,8 +5,6 @@ import Header from './components/Header';
 import ToyForm from './components/ToyForm';
 import ToyContainer from './components/ToyContainer';
 
-import data from './data';
-
 const baseUrl = 'http://localhost:3000/toys/';
 class App extends React.Component {
   state = {
